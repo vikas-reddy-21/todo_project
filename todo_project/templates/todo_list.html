@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+    <!-- ADD FORM -->
+    <div class="card form-card">
+        <h1>TO-DO LIST</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-green">Add Task</button>
+        </form>
+    </div>
+
+    <!-- TASKS -->
+    {% for todo in todos %}
+    <div class="card">
+
+        <h3 class="{% if todo.is_completed %}completed{% endif %}">
+            {{ todo.title }}
+        </h3>
+
+        <p>{{ todo.description }}</p>
+
+        <p class="deadline">
+            Deadline: {{ todo.deadline }}
+        </p>
+
+        <div class="btn-group">
+
+            <a href="{% url 'toggle_complete' todo.id %}">
+                <button class="btn btn-green">
+                    {% if todo.is_completed %}Undo{% else %}Complete{% endif %}
+                </button>
+            </a>
+
+            <a href="{% url 'edit_todo' todo.id %}">
+                <button class="btn btn-blue">Edit</button>
+            </a>
+
+            <a href="{% url 'delete_todo' todo.id %}">
+                <button class="btn btn-red">Delete</button>
+            </a>
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="center-card">
+    <h2>Delete Account</h2>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit" class="btn btn-red" style="width:100%;">
+            Permanently Delete Account
+        </button>
+    </form>
+</div>
+
+{% endblock %}

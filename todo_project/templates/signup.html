@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="center-card">
+    <h2>Signup</h2>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password1" placeholder="Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+
+        <button type="submit" class="btn btn-green" style="width:100%;">Create Account</button>
+    </form>
+
+    <p style="text-align:center; margin-top:15px;">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+    </p>
+</div>
+
+{% endblock %}
