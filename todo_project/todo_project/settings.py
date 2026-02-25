@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     "www.vikas_todo.in"
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://vikastodo.in', 'https://www.vikastodo.in']
+
 
 # Application definition
 
