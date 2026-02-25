@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-7htumxubn9x4try8b*vakymzn521xm%rgwe==0s(c^ll8rnuok
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "vikas_todo.in",
-    "www.vikas_todo.in"
+    "vikastodo.in",
+    "www.vikastodo.in"
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://vikastodo.in', 'https://www.vikastodo.in']
