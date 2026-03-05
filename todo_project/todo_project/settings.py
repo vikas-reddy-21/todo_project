@@ -27,7 +27,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "vikastodo.in",
-    "www.vikastodo.in"
+    "www.vikastodo.in",
+    "13.126.xxx.xxx",  
+    "localhost",
+    "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://vikastodo.in', 'https://www.vikastodo.in']
@@ -115,6 +118,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 
 # Static files (CSS, JavaScript, Images)
